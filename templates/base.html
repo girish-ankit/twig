@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        {% block head %}
+
+        <link rel="stylesheet" href="style.css" />
+
+        <title>{% block title %}{% endblock %} - My Webpage</title>
+
+        {% endblock %}
+
+    </head>
+
+    <body>
+
+        <div id="content">{% block content %}{% endblock %}</div>
+        {% import "forms.html" as forms %}
+
+        <p>{{ forms.input('username') }}</p>
+
+        {% from 'forms.html' import input as input_field %}
+
+        <dl>
+
+            <dt>Username</dt>
+
+            <dd>{{ input_field('username') }}</dd>
+
+            <dt>Password</dt>
+
+            <dd>{{ input_field('password', '', 'password') }}</dd>
+        </dl>
+
+
+        {
+
+        <div id="footer">
+
+            {% block footer %}
+
+
+
+            &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+
+            {% endblock %}
+            
+        </div>
+        {{ "foo #{1 + 2} baz" }}
+        {% spaceless %}
+
+        <div>
+
+            <strong>foo bar</strong>
+
+        </div>
+
+        {% endspaceless %}
+
+    </body>
+</html>
+
+
+
