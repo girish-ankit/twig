@@ -8,11 +8,12 @@ require_once 'vendor/autoload.php';
 
 $loader = new Twig_Loader_Filesystem('./templates');
 $twig = new Twig_Environment($loader, array('cache' => './tmp/cache', 'debug' => DEBUG,));
-if(DEBUG){
-$twig->addExtension(new Twig_Extension_Debug());
+if (DEBUG) {
+    $twig->addExtension(new Twig_Extension_Debug());
 }
 
 $template = $twig->loadTemplate('hello.phtml');
+
 
 $params = array(
     'name' => 'Ankit kumar',
@@ -29,10 +30,9 @@ $params = array(
             'firstname' => 'Kajal',
             'lastname' => 'kumari'
         )
-        
     ),
-    'myarray' => array('name'=>'ankit', 'age'=>30, 'village'=>'Morhar', 'pincode'=>'843125'),
-    'user'=>  array('role'=>'admin')
+    'myarray' => array('name' => 'ankit', 'age' => 30, 'village' => 'Morhar', 'pincode' => '843125'),
+    'user' => array('role' => 'admin')
 );
 
 
